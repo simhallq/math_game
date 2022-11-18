@@ -44,11 +44,15 @@ class MathGame:
 
     def generate_question(self):
         if self.mode == "Approximate":
+            # TODO change this distribution so more even spread
             return random.randint(1e2, 1e4), random.randint(1e2, 1e4)
 
     def check_answer(self, answer, a, b):
         if self.mode == "Approximate":
-            return (answer <= a * b * 1.1) or (answer >= a * b * 0.9)
+            if (answer <= a * b * 1.1) and (answer >= a * b * 0.9):
+                return True
+            else:
+                return False
 
     def start_round(self):
         a, b = self.generate_question()
