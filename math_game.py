@@ -45,7 +45,12 @@ class MathGame:
     def generate_question(self):
         if self.mode == "Approximate":
             # TODO change this distribution so more even spread
-            return random.randint(1e2, 1e4), random.randint(1e2, 1e4)
+            power_1 = random.randint(1, 3)
+            power_2 = random.randint(1, 3)
+            return (
+                random.randint(1, 99) * 10**power_1,
+                random.randint(1, 99) * 10**power_2,
+            )
 
     def check_answer(self, answer, a, b):
         if self.mode == "Approximate":
